@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+$Dark-Blue-introandemailsignupbackground: hsl(217, 28%, 15%);
+$Dark-Blue-mainbackground: hsl(218, 28%, 13%);
+$Dark-Blue-footerbackground: hsl(216, 53%, 9%);
+$Dark-Blue-testimonialsbackground: hsl(219, 30%, 18%);
+$Cyan-insidecall-to-actiongradient: hsl(176, 68%, 64%);
+$Blue-insidecall-to-actiongradient: hsl(198, 60%, 50%);
+$White: hsl(0, 0%, 100%);
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+}
+html,
+body{
+  font-family: 'Raleway',sans-serif;
+  width: 100%;
+}
+//ReUsable Styles
+.container{
+  padding:0 2rem;
+  margin: auto;
+}
+@mixin logo($height,$width){
+  background:url('../images/logo.svg')center no-repeat;
+  background-size: contain;
+  height: $height;
+  width: $width;
+}
+@mixin button{
+  padding: 1rem 9rem;
+  outline: 0;
+  border: none;
+  background: linear-gradient(45deg,$Cyan-insidecall-to-actiongradient,$Blue-insidecall-to-actiongradient);
+  color: white;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 2rem;
+  border-radius: 10rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(255,255,255,.8);
+  &:active{
+    transform: scale(.9);
+  }
+}
+.title{
+  font-weight: 700;
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+}
+.subtitle{
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+.container{
+  max-width: 576px;
+}
+// .header{
+//   &-top{
+//     .links{
+//       li:hover{
+//         li
+//       }
+//     }
+//   }
+// }
+//End of reusable stylings
+header{
+  background-color:$Dark-Blue-introandemailsignupbackground;
+  .header{
+    padding: 0;
+    color: white;
+    &-top{
+      width: 100%;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .logo{
+        @include logo(6rem,8rem);
+      }
+      .links{
+        list-style-type: none;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        li{
+          border: 2px solid #fff;
+          position: relative;
+          width: 7rem;
+          text-align: center;
+          margin: 0 .2rem;
+          transition: all .5s;
+
+
+          &::before{
+            content:'';
+            background-color:$Dark-Blue-introandemailsignupbackground;
+            position: absolute;
+            width: 10px;
+            height: 2px;
+            top: -2px;
+            left: .5rem ;
+            transform: skewX(45deg);
+          }
+          &::after{
+            content:'';
+            background-color: $Dark-Blue-introandemailsignupbackground;
+            position: absolute;
+            width: 10px;
+            height: 2px;
+            bottom: -2px;
+            right: .5rem ;
+            transform: skewX(45deg);
+          }
+         
+         
+          a{
+            font-size: 1.2rem;
+            padding: 0rem .5rem;
+            text-decoration: none;
+            color: white;
+          }
+        }
+        li:hover:before{
+          left: 5rem;
+        }
+        li:hover:after{
+          right: 5rem;
+        }
+      }
+      margin-bottom:2rem
+    }
+    &-bottom{
+      text-align: center;
+      img{
+        width: 80%;
+        height: 30rem;
+      }
+      &-text{
+        background-color: $Dark-Blue-mainbackground;
+        margin-top: 10rem;
+        position: relative;
+        z-index: 2000;
+        .title{
+          background-color: $Dark-Blue-introandemailsignupbackground;
+          padding:0rem 3rem;
+          line-height: 1.3;
+          margin-bottom: 2rem;
+        }
+        .subtitle{
+          padding: 0rem 5rem;
+          line-height: 1.3;
+          margin-bottom: 2rem;
+        }
+        .btn{
+          @include button;
+          transition: all .5s ease;
+          &:hover{
+            background: linear-gradient(45deg,$Blue-insidecall-to-actiongradient,$Cyan-insidecall-to-actiongradient);
+            padding:1rem 12rem;
+          }
+        }
+      }
+    }
+  }
+}
+section{
+  background-color:$Dark-Blue-mainbackground;
+  text-align: center;
+  color: white;
+  .section{
+    &-top{
+      padding: 5rem 0;
+      position: relative;
+      .profile{
+        margin-bottom: 10rem;
+        padding: 2rem 0;
+        transition: all .5s ;
+        img{
+          margin-bottom:2rem;
+          height: 6rem;
+          }
+          &:hover{
+            box-shadow: 0 3px 10px rgba(0,0,0,0.9);
+          }
+      }
+      
+      &::before{
+        position: absolute;
+        content: '';
+        background: url('../images/bg-curvy-mobile.svg') center no-repeat;
+        background-size: contain;
+        height: 50rem;
+        width: 100%;
+        top: -49rem;
+        left: 2rem;
+        right: 0%;
+      }
+    }
+    &-middle{
+      text-align: left;
+      margin-bottom: 10rem;
+      display: flex;
+      flex-direction: column;
+      img{
+        width: 70%;
+        margin: auto;
+        margin-bottom: 5rem;
+      }
+      &-text{
+        p:first-of-type{
+          margin-bottom: 2rem;
+        }
+        .subtitle-container{
+          .design{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2px solid $Cyan-insidecall-to-actiongradient;
+            width: 19rem;
+            span{
+              font-size: 1.5rem;
+            }
+            &SVG{
+              background: url('../images/icon-arrow.svg')center no-repeat;
+              background-size:contain ;
+              height: 4rem;
+              width: 4rem;
+            }
+          }
+        }
+      }
+    }
+    &-bottom{
+      position: relative;
+      padding-bottom: 20rem;
+      &-profile{
+        margin: auto;
+        margin-bottom: 5rem;
+        background-color:$Dark-Blue-testimonialsbackground;
+        padding: 3rem;
+        width: 95%;
+        text-align: left;
+        transition: all .5s;
+
+        .text{
+          font-size: 1.3rem;
+          margin-bottom: 1.2rem;
+        }
+        .userProfile{
+          display:flex;
+          img{
+            height: 5rem;
+            border-radius: 50%;
+            margin-right: 1rem;
+          }
+          span{
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            .title{
+              font-size: 1.2rem;
+              margin:0;
+            }
+            .subtitle{
+              font-size: 1.1rem;
+            }
+          }
+        }
+      }
+      &-profile::before{
+        top: -2.7rem;
+        left: 2rem;
+        height: 3rem;
+        width: 3rem;
+        content: '';
+        position: absolute;
+        background: url('../images/bg-quotes.png')center no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+}
+footer{
+  background-color: $Dark-Blue-footerbackground;
+  color:white;
+  .footer{
+    position: relative;
+    padding-bottom: 5rem;
+    &-top{
+      width: 90%;
+      margin: auto;
+      text-align: center;
+      padding: 4rem;
+      background-color: $Dark-Blue-introandemailsignupbackground;
+      position: absolute;
+      top: -20rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      border-radius: 2rem;
+      .form-group{
+        margin-top: 5rem ;
+
+        .inputForm{
+          padding: 1.5rem 1rem;
+          width: 100%;
+          border: none;
+          outline:0;
+          font-size: 1rem;
+          border-radius: 20rem;
+          margin-bottom: 2rem;
+          text-align: left;
+        }
+        .btn{
+          @include button;
+          padding: 1rem 0rem;
+          width: 100%;
+          font-size: 1.5rem;
+        }
+      }
+    }
+    &-bottom{
+      padding-top: 30rem;
+      .logo{
+        @include logo(10rem,20rem)
+      }
+
+      .content{
+        display: flex;
+        padding: 0;
+        width: 100%;
+        align-items: center;
+        &-text{
+          font-size: 1.5rem;
+        }
+        
+        img{
+          margin-right: 1rem;
+        }
+      }
+      div{
+        margin-bottom: 2rem;
+        font-size: 1.4rem;
+      }
+      
+      .second,.third{
+        p{
+          font-size: 1.4rem;
+          margin-bottom: 1rem;
+        }
+      }
+      .fourth{
+        display: flex;
+        margin-bottom: 3rem;
+        justify-content: center;
+
+        span{
+          border: 2px solid white;
+          height:3rem;
+          width:3rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 1rem;
+          border-radius: 50%;
+          font-size: 10px;
+          i{
+            transform: translateY(-.4rem);
+          }
+        }
+      }
+    }
+  }
+}
+@import 'responsive';
